@@ -9,7 +9,8 @@
             font-size: 20px;
             font-weight: bold;
             text-align: center;
-            
+             border-bottom: solid 2px #FFF;
+             border-radius: 5px;
           }
           
           th {
@@ -17,6 +18,10 @@
             margin-bottom: 30px;
             text-align: center;
             color: white;
+          }
+          
+          table {
+            border-collapse: collapse;
           }
         </style>
     </head>
@@ -33,9 +38,10 @@
     </a>
   </div>
   
-  <h1 style = "margin-top: 30px; margin-bottom: 5px;">2016 Final Colley Ratings</h1>
-<table style = "width: 500px; border: solid 2px #FFF; border-radius: 5px">
-
+  <h1 style = "margin-top: 30px; margin-bottom: 5px; font-family: 'Open Sans'">2016 Final Colley Ratings</h1>
+  <h1 style = "margin-top: 10px; margin-bottom: 5px; font-family: 'Open Sans'; font-size: 15px; font-weight: normal">2017 Rankings Will Be Available Following Week 3</h1>
+<table style = "width: 500px;">
+  <tr><td style = "text-align: left; font-size: 20px; color: #fff">Team Name</td><td style = "font-size: 20px; color: #fff">Colley Score</td></tr>
   <% entries = data.map(function(elem) {
     return '<tr><td style = "text-align: left">' + elem.teams1 + '</td><td>' + (Math.round(elem.teams2*100)/100) + '</td></tr>';
 }) -%>

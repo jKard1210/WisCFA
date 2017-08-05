@@ -7,7 +7,23 @@
             font-size: 20px;
             font-weight: bold;
             text-align: center;
+            margin-bottom: 10px;
+            border-bottom: solid 2px #FFF;
+            border-radius: 4px;
+            padding: 10px;
             
+          }
+          
+          table { 
+            border-collapse: collapse;
+            border-spacing: 10px;
+          
+    
+          }
+          
+          td{
+            height: 50px;
+            font-weight: bold;
           }
           
           th {
@@ -16,12 +32,16 @@
             text-align: center;
             color: white;
           }
+          
+          .winner {
+            color: #006400;
+          }
         </style>
     </head>
     
 
     
-<div class = "container" style = "width: 500px">
+<div class = "container" style = "width: 700px">
   <h1 style = "font-size: 100px; color: white; font-family: 'Open Sans'; text-align: center; margin-bottom: 5px">WISCFA</h1>  
   <h1 style = "font-size: 25px; color: black; font-family: 'Open Sans'; text-align: center">Wisconsin College Football Analytics</h1>  
   <div class="wrap" style = "margin-bottom: 40px">
@@ -31,8 +51,22 @@
     </a>
   </div>
   
-  <h2 style = "margin-top: 30px; margin-bottom: 5px; text-align: center">Probabilites for Week One of 2017 will be available once the first AP Poll is released</h2>
+    <h1 style = "font-size: 25px; color: black; font-family: 'Open Sans'; text-align: center">Week One Probabilities</h1>  
   
+  
+<table style = "width: 700px;">
+
+  <% entries = data.map(function(elem) {
+    if (elem.homeProb > elem.awayProb) {
+    return '<tr><td style = "text-align: left;" class = "winner">' + elem.homeTeam + '</td><td class = "winner">' + Math.round(elem.homeProb*10)/10 + '%</td><td style = "text-align: left;">' + elem.awayTeam + '</td><td>' + Math.round(elem.awayProb*10)/10 + '%</td></tr>';
+}
+else {
+  return '<tr><td style = "text-align: left;">' + elem.homeTeam + '</td><td>' + Math.round(elem.homeProb*10)/10 + '%</td><td style = "text-align: left;" class = "winner">' + elem.awayTeam + '</td><td class = "winner">' + Math.round(elem.awayProb*10)/10 + '%</td></tr>';
+}}) 
+-%>
+<p><%- entries.join("") %></p>
+
+  </table>
 
 </div>
 

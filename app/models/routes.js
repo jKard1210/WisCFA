@@ -10,7 +10,11 @@ var mongoose = require('mongoose');
          });
          
          var probabilitiesSchema = new Schema({
-                matchups: Array
+                homeTeam: String,
+                homeProb: Number,
+                awayTeam: String,
+                awayProb: Number,
+                week: Number
          });
 
         var rankings = mongoose.model('rankings', rankingsSchema);
@@ -41,6 +45,7 @@ var mongoose = require('mongoose');
 
         probabilities.find({}, function(err, data){
         if (err) console.log(err);
+        console.log(data);
         res.render('probabilities.ejs', {
             data: data
         });
