@@ -25,6 +25,10 @@ var mongoose = require('mongoose');
     app.get('/', function(req, res) {
         res.render('home.ejs'); // load the index.ejs file
     });
+    
+    app.get('/performance', function(req, res) {
+        res.render('performance.ejs'); // load the index.ejs file
+    });
 
     
 
